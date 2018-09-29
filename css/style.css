@@ -85,7 +85,7 @@
            height:120px;
            font-size:60px!important;
            margin-top:100px;
-           border:5px dashed #e198c3;  
+           border:5px dashed #e198c3;
        }
        .first{
          margin:2%;
@@ -154,8 +154,7 @@
            padding-top:10%;
            height:330px;
            text-align: center;
-           display: none;
-
+          
        }
        .result button{
          height: 80px;

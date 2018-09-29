@@ -22,21 +22,22 @@ $(document).ready(function(){
           right:"2"};
 
 
-      var quelst=[que1,que2,que3,que4,que5];
+      var quelst=[que1];
       var wrong=[];
       $("#join").click(function(){
         $('.first').hide();
-        $(".front").show();
+        $(".front").fadeIn();
+
         var imageUrl=window.location.href+"/image/front1.jpg";
         $('body').css('background-image', 'url("' + imageUrl + '"').fadeIn(2000);
       })
       $("#start").click(function(){
-          $('.first').hide();
-          $(".front").hide();
+          $('.first').animate("bounce","slow");
+
           var imageUrl=window.location.href+"/image/quiz1.jpg";
           $('body').css('background-image', 'url("' + imageUrl + '"').fadeIn(2000);
-                $("#sub").show();
-                $(".quiz").show();
+                $("#sub").fadeIn();
+                $(".quiz").fadeIn();
           $("#num").text("Câu "+1+"/"+quelst.length)
           $("#q").text(quelst[i].que);
           $("#op1").html("<input type='radio' name='opt' id='o1' value='0'><label for='o1'>"+"&nbsp;"+quelst[i].ans[0])+"</label>";
@@ -81,12 +82,14 @@ $(document).ready(function(){
           }
       });
       function next(){
+        $('#sub').fadeOut("slow");
+        $('#sub').fadeIn("slow");
           if(i!=(quelst.length)-1){
                   i++;
               }
           $('.radio>div').each(function(i){
 
-                  $(this).show();
+                  $(this).fadeIn();
 
           })
           $("#q").text(quelst[i].que);
@@ -114,7 +117,7 @@ $(document).ready(function(){
           // Remove null
           $('.radio>div').each(function(i){
               if(!$(this).text()){
-                  $(this).hide();
+                  $(this).fadeOut();
               }
           })
           $("#num").text("Câu "+parseInt(i+1)+"/"+quelst.length);
@@ -140,11 +143,11 @@ $(document).ready(function(){
               $('body').css('background-image', 'url("' + imageUrl + '"');
             }
           }
-          $("#sub").show();
+          $("#sub").fadeIn();
           }
       function reslt(){
           $(".quiz").hide();
-          $(".result").show();
+          $(".result").fadeIn();
           $(".score").text(score+"/"+quelst.length);
           let imageUrl=window.location.href+"/image/result.jpg";
           $('body').css('background-image', 'url("' + imageUrl + '"');
@@ -158,7 +161,7 @@ $(document).ready(function(){
       }
       $("#an").click(function(){
           $(".result").hide();
-          $(".answers").show();
+          $(".answers")();
 
 
       });

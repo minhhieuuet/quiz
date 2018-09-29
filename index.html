@@ -1,0 +1,109 @@
+
+<body>
+
+  <!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Rokkitt|Yeseva+One" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : 'your-app-id',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+    <script>
+               new WOW().init();
+
+    </script>
+    <script>
+        $('join').click(function(){
+          $(thís).removeClass("wow bounceInUp")
+          $(this).addClass("wow fadeInUp animated");
+          $(this).attr("style","visibility: visible; animation-name: fadeInUp;");
+        })
+    </script>
+</head>
+<body>
+  <div class="first">
+    <!-- <h1 id="quiz-logo">QUIZ</h1> -->
+    <button type="button" id="join" class="wow bounceInUp" >Tham gia ngay</button>
+  </div>
+    <div class="front">
+
+        <button type="button" id="start" class="wow bounce">Bắt đầu</button>
+    </div>
+    <div class="quiz" >
+        <p id="num" >Câu</p>
+        <div id="q"></div><br>
+        <div class="radio" >
+            <div id="op1"></div>
+            <div id="op2"></div>
+            <div id="op3"></div>
+            <div id="op4"></div>
+        </div><br>
+        <center><button type="button" id="sub" class="wow jello">Tiếp theo</button></center>
+    </div>
+    <div class="result" >
+        <!-- <div class="score"></div> -->
+        <br>
+        <div class="message"></div>
+        <!-- <button type="button" id="an">Click here to see answers</button> -->
+        <a href="https://www.facebook.com/sharer.php?u=https://www.facebook.com/glicoicreoVietnam/" target="_blank"><button style="width:350px" class="wow bounceInUp"><i class="fas fa-share-alt"></i> Chia sẻ ngay</button></a>
+        <a href="https://www.facebook.com/glicoicreoVietnam/" target="_blank"><button style="width:480px" class="wow bounceInUp" > <i class="fas fa-thumbs-up"></i> Like Glico Iceo Việt Nam</button></a>
+    </div>
+    <div class="answers">
+
+    </div>
+
+</body>
+
+</html>
+
+
+
+    <script  src="js/index.js"></script>
+    <script>
+    window.addEventListener('load', function () {
+    var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    var source = audioCtx.createBufferSource();
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'buddy.mp3');
+    xhr.responseType = 'arraybuffer';
+    xhr.addEventListener('load', function (r) {
+        audioCtx.decodeAudioData(
+                xhr.response,
+                function (buffer) {
+                    source.buffer = buffer;
+                    source.connect(audioCtx.destination);
+                    source.loop = false;
+                });
+        source.start(0);
+    });
+    xhr.send();
+});
+    </script>
+
+
+
+</body>
+
+</html>
